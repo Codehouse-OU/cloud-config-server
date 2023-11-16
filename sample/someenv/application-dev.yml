@@ -1,0 +1,6 @@
+application:
+  specific: config
+  password: '{cipher}ed92de9db7a1b62c2f210f4b1bc52531e41cc7c996784b5386a6e6f135ad14dc'
+logging:
+  level:
+    ROOT: DEBUG

@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  config-server:
+    image: codehouseou/cloud-config-server:latest
+    ports:
+      - 8888:8888
+    environment:
+      # Native profile is used to load config from local file system
+      - SPRING_PROFILES_ACTIVE=native
+      - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS=file:///config-repo
+      # Use symmetric encryption key to encrypt/decrypt sensitive data
+      - ENCRYPT_KEY=FxUjrRSbAb3q9fxdUAFKZPBK2
+    volumes:
+      - ./sample:/config-repo
