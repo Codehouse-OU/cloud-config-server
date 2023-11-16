@@ -10,5 +10,8 @@ services:
       - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS=file:///config-repo
       # Use symmetric encryption key to encrypt/decrypt sensitive data
       - ENCRYPT_KEY=FxUjrRSbAb3q9fxdUAFKZPBK2
+      # Protect the endpoints with username and password.
+      - SPRING_SECURITY_USER_NAME=cloudconfig
+      - SPRING_SECURITY_USER_PASSWORD=AoM4jK829FW7MssBhhdBBdfTH
     volumes:
       - ./sample:/config-repo

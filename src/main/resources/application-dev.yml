@@ -4,5 +4,9 @@ spring:
       server:
         native:
           search-locations: classpath:./
+  security:
+    user:
+      name: cloudconfig
+      password: AoM4jK829FW7MssBhhdBBdfTH
 encrypt:
   key: FxUjrRSbAb3q9fxdUAFKZPBK2
