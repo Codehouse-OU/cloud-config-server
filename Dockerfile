@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM eclipse-temurin:17-alpine AS build
+FROM eclipse-temurin:21-alpine AS build
 
 # Set the working directory in Docker
 WORKDIR /home/gradle/project
@@ -18,7 +18,7 @@ COPY src src
 RUN ./gradlew build --no-daemon
 
 # Stage 2: Extract layers
-FROM eclipse-temurin:17-alpine AS layers
+FROM eclipse-temurin:21-alpine AS layers
 
 # Set the working directory
 WORKDIR /application
@@ -30,7 +30,7 @@ COPY --from=build /home/gradle/project/build/libs/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 # Stage 3: Create the runtime image
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 # Set the deployment directory
 WORKDIR /app
